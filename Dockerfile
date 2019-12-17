@@ -12,7 +12,7 @@ COPY package.json /app/package.json
 RUN npm config set unsafe-perm true
 RUN npm install --silent
 RUN npm install react-scripts@3.0.1 -g --silent
-
-# start app
-#CMD ["npm", "start"]
+RUN npm install -g serve
+RUN npm run build
+EXPOSE 80
 CMD ["serve", "-p", "80", "-s", "."]
